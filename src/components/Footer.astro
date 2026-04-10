@@ -17,23 +17,80 @@ const today = new Date();
 	</div>
 </footer>
 <style>
-	footer {
-		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
-		color: rgb(var(--gray));
-		text-align: center;
+	@keyframes slideUp {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
+
+	footer {
+		padding: 3em 1em 2em 1em;
+		background: var(--bg-secondary);
+		border-top: 2px solid rgba(88, 166, 255, 0.2);
+		color: var(--text-secondary);
+		text-align: center;
+		margin-top: 4em;
+		animation: slideUp 0.8s ease-out;
+	}
+
+	footer a {
+		color: var(--text-secondary);
+		transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+		position: relative;
+	}
+
+	footer a::before {
+		content: '';
+		position: absolute;
+		bottom: -2px;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background: linear-gradient(90deg, #58a6ff, #79c0ff);
+		transition: width 0.3s ease;
+	}
+
+	footer a:hover {
+		color: #58a6ff;
+	}
+
+	footer a:hover::before {
+		width: 100%;
+	}
+
 	.social-links {
 		display: flex;
 		justify-content: center;
-		gap: 1em;
-		margin-top: 1em;
+		gap: 2em;
+		margin-top: 1.5em;
 	}
+
 	.social-links a {
 		text-decoration: none;
-		color: rgb(var(--gray));
+		color: var(--text-secondary);
+		display: flex;
+		align-items: center;
+		transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+		position: relative;
 	}
+
 	.social-links a:hover {
-		color: rgb(var(--gray-dark));
+		color: #58a6ff;
+		transform: translateY(-5px) scale(1.2);
+	}
+
+	.social-links a svg {
+		width: 32px;
+		height: 32px;
+		transition: all 0.3s ease;
+	}
+
+	.social-links a:hover svg {
+		filter: drop-shadow(0 0 10px rgba(88, 166, 255, 0.6));
 	}
 </style>

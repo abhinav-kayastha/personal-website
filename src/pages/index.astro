@@ -9,40 +9,379 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translateY(20px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			@keyframes slideInLeft {
+				from {
+					opacity: 0;
+					transform: translateX(-30px);
+				}
+				to {
+					opacity: 1;
+					transform: translateX(0);
+				}
+			}
+
+			@keyframes pulse {
+				0%, 100% {
+					opacity: 1;
+				}
+				50% {
+					opacity: 0.7;
+				}
+			}
+
+			.intro-section {
+				margin-bottom: 3em;
+				animation: fadeInUp 0.8s ease-out;
+			}
+
+			.intro-section h1 {
+				background: linear-gradient(135deg, #58a6ff 0%, #79c0ff 100%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				font-size: 3em;
+				margin-bottom: 0.3em;
+			}
+
+			.intro-section p {
+				font-size: 1.1em;
+				line-height: 1.8;
+				color: var(--text-secondary);
+				animation: slideInLeft 1s ease-out;
+			}
+
+			.intro-section p:nth-of-type(2) {
+				animation-delay: 0.2s;
+			}
+
+			.contact-info {
+				display: flex;
+				gap: 2em;
+				margin: 2em 0 3em 0;
+				flex-wrap: wrap;
+			}
+
+			.contact-link {
+				display: flex;
+				align-items: center;
+				gap: 0.7em;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.contact-link a {
+				position: relative;
+				font-weight: 500;
+				padding-bottom: 2px;
+				transition: all 0.3s ease;
+			}
+
+			.contact-link a::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 0;
+				height: 2px;
+				background: linear-gradient(90deg, #58a6ff, #79c0ff);
+				transition: width 0.3s ease;
+			}
+
+			.contact-link a:hover::after {
+				width: 100%;
+			}
+
+			.contact-link span {
+				font-size: 1.5em;
+				animation: pulse 2s ease-in-out infinite;
+			}
+
+			h2 {
+				position: relative;
+				display: inline-block;
+				margin-top: 2em;
+				margin-bottom: 1.5em;
+				padding-bottom: 0.5em;
+			}
+
+			h2::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 3px;
+				background: linear-gradient(90deg, #58a6ff 0%, #79c0ff 50%, transparent 100%);
+			}
+
+			.tech-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 1em;
+				margin: 2em 0;
+				animation: fadeInUp 1s ease-out;
+			}
+
+			.tech-tag {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.6em;
+				padding: 0.6em 1.2em;
+				background: linear-gradient(135deg, rgba(88, 166, 255, 0.1), rgba(121, 192, 255, 0.1));
+				border-left: 3px solid #58a6ff;
+				color: var(--text-primary);
+				border-radius: 4px;
+				font-size: 0.95em;
+				font-weight: 500;
+				transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+				position: relative;
+				overflow: hidden;
+			}
+
+			.tech-tag::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: -100%;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(90deg, transparent, rgba(88, 166, 255, 0.2), transparent);
+				transition: left 0.5s ease;
+			}
+
+			.tech-tag:hover::before {
+				left: 100%;
+			}
+
+			.tech-tag:hover {
+				transform: translateY(-3px);
+				border-left-color: #79c0ff;
+				box-shadow: 0 8px 16px rgba(88, 166, 255, 0.2);
+			}
+
+			.tech-icon {
+				font-size: 1.2em;
+				display: inline-block;
+			}
+
+			.role-section {
+				padding: 2em 0;
+				border-top: 2px solid rgba(88, 166, 255, 0.2);
+				border-bottom: 2px solid rgba(88, 166, 255, 0.2);
+				margin: 2em 0;
+				animation: fadeInUp 1.2s ease-out;
+			}
+
+			.role-title {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.7em;
+				color: #58a6ff;
+				font-size: 1.5em;
+				font-weight: 600;
+				margin-bottom: 0.5em;
+			}
+
+			.role-meta {
+				color: var(--text-secondary);
+				font-size: 0.95em;
+				margin-bottom: 1.2em;
+				font-weight: 500;
+			}
+
+			.role-section ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.role-section li {
+				padding: 0.6em 0;
+				padding-left: 1.5em;
+				position: relative;
+				color: var(--text-primary);
+				line-height: 1.6;
+				transition: all 0.3s ease;
+			}
+
+			.role-section li:before {
+				content: '→';
+				position: absolute;
+				left: 0;
+				color: #58a6ff;
+				font-weight: bold;
+				animation: slideInLeft 0.5s ease-out forwards;
+				opacity: 0;
+			}
+
+			.role-section li:nth-child(1):before {
+				animation-delay: 0.1s;
+			}
+
+			.role-section li:nth-child(2):before {
+				animation-delay: 0.2s;
+			}
+
+			.role-section li:nth-child(3):before {
+				animation-delay: 0.3s;
+			}
+
+			.role-section li:hover {
+				color: #79c0ff;
+				padding-left: 2em;
+			}
+
+			.category-title {
+				font-size: 1.1em;
+				font-weight: 600;
+				color: #79c0ff;
+				margin-bottom: 1.2em;
+				display: flex;
+				align-items: center;
+				gap: 0.5em;
+			}
+
+			.skills-section {
+				margin: 3em 0;
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>Hello visitor!</h1>
-			<p>
-				Welcome to my website.
-			</p>
-			<!--<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-			-->
+			<section class="intro-section">
+				<h1>Abhinav Kayastha</h1>
+				<p>
+					Developing RF Software at Nokia. Highly skilled in embedded tools and CI/CD automation. 
+					Proficient in Python, C, Bash & JavaScript, with a strong background in software development, 
+					CI/CD pipelines and Linux environments.
+				</p>
+				<p>
+					Experienced in building full-stack web applications & embedded IoT systems.
+				</p>
+				
+				<div class="contact-info">
+					<div class="contact-link">
+						<span>📧</span>
+						<a href="mailto:abhinavkayastha04@gmail.com">abhinavkayastha04@gmail.com</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="skills-section">
+				<h2>Core Skills & Technologies</h2>
+				
+				<div class="category-title">
+					<span>┌─ Languages</span>
+				</div>
+				<div class="tech-tags">
+					<div class="tech-tag">
+						<span class="tech-icon">🐍</span>
+						<span>Python</span>
+					</div>
+					<div class="tech-tag">
+						<span class="tech-icon">⬚</span>
+						<span>Bash</span>
+					</div>
+					<div class="tech-tag">
+						<span class="tech-icon">⚙️</span>
+						<span>C / C++</span>
+					</div>
+					<div class="tech-tag">
+						<span class="tech-icon">⚡</span>
+						<span>JavaScript</span>
+					</div>
+					<div class="tech-tag">
+						<span class="tech-icon">🤖</span>
+						<span>Robot Framework</span>
+					</div>
+					<div class="tech-tag">
+						<span class="tech-icon">🗄️</span>
+						<span>SQL</span>
+					</div>
+				</div>
+
+				<div class="category-title" style="margin-top: 2em;">
+					<span>├─ Technologies</span>
+				</div>
+				<div class="tech-tags">
+					<div class="tech-tag">
+						<span class="tech-icon">🍶</span>
+						<span>Flask</span>
+					</div>
+					<div class="tech-tag">
+						<span class="tech-icon">🐳</span>
+						<span>Docker</span>
+					</div>
+					<div class="tech-tag">
+						<span class="tech-icon">🚀</span>
+						<span>Jenkins</span>
+					</div>
+					<div class="tech-tag">
+						<span class="tech-icon">📦</span>
+						<span>GitLab CI</span>
+					</div>
+					<div class="tech-tag">
+						<span class="tech-icon">🛠️</span>
+						<span>Yocto</span>
+					</div>
+				</div>
+
+				<div class="category-title" style="margin-top: 2em;">
+					<span>└─ Tools & Concepts</span>
+				</div>
+				<div class="tech-tags">
+					<div class="tech-tag">
+						<span class="tech-icon">📘</span>
+						<span>Git / GitHub</span>
+					</div>
+					<div class="tech-tag">
+						<span class="tech-icon">🐧</span>
+						<span>Linux</span>
+					</div>
+					<div class="tech-tag">
+						<span class="tech-icon">🔄</span>
+						<span>CI/CD Pipelines</span>
+					</div>
+					<div class="tech-tag">
+						<span class="tech-icon">🧬</span>
+						<span>Embedded Systems</span>
+					</div>
+					<div class="tech-tag">
+						<span class="tech-icon">📡</span>
+						<span>MQTT</span>
+					</div>
+					<div class="tech-tag">
+						<span class="tech-icon">🤖</span>
+						<span>GitHub Copilot</span>
+					</div>
+				</div>
+			</section>
+
+			<section class="role-section">
+				<div class="role-title">
+					<span>💼</span>
+					<span>Maintenance Engineer at Nokia</span>
+				</div>
+				<div class="role-meta">📍 Oulu, Finland | September 2025 – Present</div>
+				<ul>
+					<li>Creating scripts to monitor health of base transceiver stations (BTS)</li>
+					<li>Developing tailormade applications for telecom operators worldwide</li>
+					<li>Maintaining and improving CI/CD pipeline infrastructure</li>
+				</ul>
+			</section>
 		</main>
 		<Footer />
 	</body>

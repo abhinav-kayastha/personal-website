@@ -4,59 +4,212 @@ import Layout from '../layouts/BlogPost.astro';
 
 <Layout
 	title="About Me"
-	description="Lorem ipsum dolor sit amet"
+	description="Abhinav Kayastha - RF Software Engineer at Nokia"
 	pubDate={new Date('August 08 2021')}
 	heroImage="/blog-placeholder-about.jpg"
 >
+	<style>
+		@keyframes slideInLeft {
+			from {
+				opacity: 0;
+				transform: translateX(-20px);
+			}
+			to {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+			}
+			to {
+				opacity: 1;
+			}
+		}
+
+		h2 {
+			position: relative;
+			padding-bottom: 0.5em;
+			margin-top: 2em;
+			margin-bottom: 1em;
+			animation: slideInLeft 0.6s ease-out;
+		}
+
+		h2::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 3px;
+			background: linear-gradient(90deg, #58a6ff 0%, #79c0ff 50%, transparent 100%);
+		}
+
+		h2:first-of-type::after {
+			display: none;
+		}
+
+		p {
+			animation: fadeIn 0.8s ease-out;
+			line-height: 1.8;
+		}
+
+		.achievement-item {
+			padding: 1.2em 0 1.2em 1.5em;
+			position: relative;
+			border-left: 3px solid #58a6ff;
+			margin: 1em 0;
+			animation: slideInLeft 0.6s ease-out;
+			transition: all 0.3s ease;
+		}
+
+		.achievement-item:hover {
+			border-left-color: #79c0ff;
+			padding-left: 2em;
+		}
+
+		.achievement-item strong {
+			color: #79c0ff;
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		ul li {
+			padding: 0.5em 0 0.5em 1.5em;
+			position: relative;
+			animation: slideInLeft 0.6s ease-out;
+			transition: all 0.3s ease;
+		}
+
+		ul li:before {
+			content: '▸';
+			position: absolute;
+			left: 0;
+			color: #58a6ff;
+			font-size: 1.2em;
+		}
+
+		ul li:hover {
+			color: #79c0ff;
+			padding-left: 2em;
+		}
+
+		.tech-display {
+			margin: 1.5em 0;
+			animation: fadeIn 0.8s ease-out;
+		}
+
+		.tech-display strong {
+			display: block;
+			color: #79c0ff;
+			margin-bottom: 0.5em;
+		}
+
+		.language-item {
+			display: inline-block;
+			margin-right: 2em;
+			margin-bottom: 0.5em;
+			animation: fadeIn 0.8s ease-out;
+		}
+
+		.language-item strong {
+			color: #58a6ff;
+		}
+	</style>
+
+	<h2>Professional Background</h2>
 	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+		I'm a Maintenance Engineer at Nokia working in Oulu, Finland, specializing in RF Software development. 
+		With a strong foundation in embedded systems, CI/CD automation, and full-stack web development, I'm 
+		passionate about building robust, scalable solutions for complex technical challenges.
 	</p>
 
+	<h2>Current Focus</h2>
 	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
+		At Nokia, I focus on:
+	</p>
+	<ul>
+		<li>Creating monitoring scripts for base transceiver stations (BTS)</li>
+		<li>Developing tailormade applications for telecom operators worldwide</li>
+		<li>Maintaining and improving CI/CD pipeline infrastructure</li>
+	</ul>
+
+	<h2>Education</h2>
+	<p>
+		<strong>🎓 Bachelor of Engineering, Information Technology (IoT – Embedded Devices)</strong><br />
+		Metropolia University of Applied Sciences | August 2022 – May 2025<br />
+		<em>Graduated a year early. Degree was 4 years but finished in 3.</em>
+	</p>
+	<p>
+		<strong>📚 Highschool Diploma, IB: International Baccalaureate</strong><br />
+		Kuopion Lyseon lukio | August 2019 – June 2022
 	</p>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
+	<h2>Key Achievements</h2>
+	<div class="achievement-item">
+		<strong>🚀 Nokia PIM Detection Project</strong><br />
+		Developed a full-stack web application for data visualization of network interference in 4G & 5G, enabling engineers to identify PIM related issues <strong>99.95% faster</strong>
+	</div>
 
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
+	<div class="achievement-item">
+		<strong>🏆 Best Paper Award</strong><br />
+		"YOLO for Urban Traffic: Insights from Helsinki Port Surveillance" - Ranked <strong>#1 out of 387 papers</strong> at SoCTA2024
+	</div>
 
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
+	<div class="achievement-item">
+		<strong>🤖 Computer Vision Research</strong><br />
+		Achieved <strong>96% accuracy</strong> in human and vehicle detection models during internship at University of Turku
+	</div>
+
+	<h2>Technical Expertise</h2>
+	<div class="tech-display">
+		<strong>Languages</strong>
+		Python, Bash, C, C++, Robot Framework, JavaScript, SQL
+	</div>
+	<div class="tech-display">
+		<strong>Technologies</strong>
+		Flask, Docker, Jenkins, Yocto, GitLab CI
+	</div>
+	<div class="tech-display">
+		<strong>Tools</strong>
+		Git, Linux, CI/CD Pipelines, GitHub Copilot, MQTT
+	</div>
+	<div class="tech-display">
+		<strong>Specializations</strong>
+		Embedded systems, RF software, IoT, full-stack web development
+	</div>
+
+	<h2>Languages</h2>
+	<div style="margin: 1.5em 0;">
+		<div class="language-item">
+			<strong>Native:</strong> English, Maithili, Nepali
+		</div>
+		<div class="language-item">
+			<strong>Conversational:</strong> Finnish
+		</div>
+		<div class="language-item">
+			<strong>Basic:</strong> Swedish
+		</div>
+	</div>
+
+	<h2>Notable Projects</h2>
+	<div class="achievement-item">
+		<strong>🐦 Smart Bird Feeder</strong> (October 2024 – March 2025)<br />
+		IoT Smart Bird Feeder using Node.js, Express.js, MQTT & WebSockets for real-time monitoring. Developed a responsive web dashboard with real-time data, historical tracking, and CSV export functionality.
+	</div>
+
+	<div class="achievement-item">
+		<strong>☁️ Personal Cloud Infrastructure</strong> (July 2025)<br />
+		Self-hosted private cloud on Raspberry Pi 4 using Nextcloud AIO, Docker & Portainer with Cloudflare Tunnel, firewall rules & SSL for secure remote access.
+	</div>
+
+	<div class="achievement-item">
+		<strong>🐧 Embedded Linux Development</strong> (October 2024 – December 2024)<br />
+		Built and optimized embedded Linux development workflow with Yocto Project for ARM-based systems, supporting cross-compilation and automated builds.
+	</div>
 </Layout>
