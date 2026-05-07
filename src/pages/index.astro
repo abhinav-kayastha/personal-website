@@ -3,6 +3,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { Icon } from 'astro-icon/components';
 ---
 
 <!doctype html>
@@ -284,53 +285,50 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				<h2>Core Skills & Technologies</h2>
 				
 				<div class="category-title">
-					<span>┌─ Languages</span>
+					<span>Languages</span>
 				</div>
 				<div class="tech-tags">
 					<div class="tech-tag">
-						<span class="tech-icon">🐍</span>
+						<Icon name="logos:python"/>
 						<span>Python</span>
 					</div>
 					<div class="tech-tag">
-						<span class="tech-icon">⬚</span>
-						<span>Bash</span>
+						<Icon name="logos:bash"/>
 					</div>
 					<div class="tech-tag">
-						<span class="tech-icon">⚙️</span>
-						<span>C / C++</span>
+						<Icon name="logos:c-plusplus"/>
 					</div>
 					<div class="tech-tag">
-						<span class="tech-icon">⚡</span>
-						<span>JavaScript</span>
+						<Icon name="logos:javascript"/>
 					</div>
 					<div class="tech-tag">
 						<span class="tech-icon">🤖</span>
 						<span>Robot Framework</span>
 					</div>
 					<div class="tech-tag">
-						<span class="tech-icon">🗄️</span>
+						<Icon name="logos:sqlite"/>
 						<span>SQL</span>
 					</div>
 				</div>
 
 				<div class="category-title" style="margin-top: 2em;">
-					<span>├─ Technologies</span>
+					<span>Technologies</span>
 				</div>
 				<div class="tech-tags">
 					<div class="tech-tag">
-						<span class="tech-icon">🍶</span>
+						<Icon name="logos:flask"/>
 						<span>Flask</span>
 					</div>
 					<div class="tech-tag">
-						<span class="tech-icon">🐳</span>
+						<Icon name="logos:docker"/>
 						<span>Docker</span>
 					</div>
 					<div class="tech-tag">
-						<span class="tech-icon">🚀</span>
+						<Icon name="logos:jenkins"/>
 						<span>Jenkins</span>
 					</div>
 					<div class="tech-tag">
-						<span class="tech-icon">📦</span>
+						<Icon name="logos:gitlab"/>
 						<span>GitLab CI</span>
 					</div>
 					<div class="tech-tag">
@@ -340,15 +338,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				</div>
 
 				<div class="category-title" style="margin-top: 2em;">
-					<span>└─ Tools & Concepts</span>
+					<span>Tools & Concepts</span>
 				</div>
 				<div class="tech-tags">
 					<div class="tech-tag">
-						<span class="tech-icon">📘</span>
+						<Icon name="logos:git"/>
 						<span>Git / GitHub</span>
 					</div>
 					<div class="tech-tag">
-						<span class="tech-icon">🐧</span>
+						<Icon name="logos:linux-tux"/>
 						<span>Linux</span>
 					</div>
 					<div class="tech-tag">
@@ -364,7 +362,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 						<span>MQTT</span>
 					</div>
 					<div class="tech-tag">
-						<span class="tech-icon">🤖</span>
+						<Icon name="logos:github-copilot"/>
 						<span>GitHub Copilot</span>
 					</div>
 				</div>
